@@ -59,7 +59,6 @@
     "items" : [
       "paste_and_swap",
       "select_parents",
-      "copy_as_svg",
       "toggle_meta_layer_visibility",
       "rename_selected_layers",
       "pad_artboard_contents",

@@ -9,10 +9,7 @@
         "manifest": "src/manifest.json",
         "main": "RomanMisc.sketchplugin"
     },
-    "author": {
-        "name": "Roman Nurik",
-        "email": "roman@nurik.net"
-    },
+    "author": "Roman Nurik <roman@nurik.net>",
     "scripts": {
         "build": "skpm-build",
         "watch": "skpm-build --watch",

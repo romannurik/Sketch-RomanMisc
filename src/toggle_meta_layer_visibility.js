@@ -26,6 +26,6 @@ function toggleMetaVisibility(layer) {
   // iterate over children recursively if we can
   if (layer instanceof MSArtboardGroup || layer instanceof MSLayerGroup || layer instanceof MSPage) {
     let childLayers = Array.fromNSArray(layer.layers());
-    childLayers.forEach(layer => hideOrShowSpecs(layer));
+    childLayers.forEach(layer => toggleMetaVisibility(layer));
   }
 }
