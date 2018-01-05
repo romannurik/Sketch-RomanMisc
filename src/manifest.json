@@ -1,0 +1,71 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "identifier" : "net.nurik.roman.sketch.misc",
+  "commands": [
+    {
+      "script" : "./paste_and_swap.js",
+      "shortcut" : "ctrl cmd option v",
+      "name" : "Paste and Swap",
+      "identifier" : "paste_and_swap"
+    },
+    {
+      "script" : "./select_parents.js",
+      "shortcut" : "ctrl cmd option p",
+      "name" : "Select Parents of Selection",
+      "identifier" : "select_parents"
+    },
+    {
+      "script" : "./copy_as_svg.js",
+      "shortcut" : "ctrl cmd option c",
+      "name" : "Copy as SVG",
+      "identifier" : "copy_as_svg"
+    },
+    {
+      "script" : "./stack_selected_layers.js",
+      "handler" : "onStackSimple",
+      "shortcut" : "ctrl cmd option d",
+      "name" : "Stack Selected Layers",
+      "identifier" : "stack_selected_layers"
+    },
+    {
+      "script" : "./stack_selected_layers.js",
+      "handler" : "onStackCustom",
+      "shortcut" : "shift cmd option d",
+      "name" : "Stack Selected Layers (w/ Custom Spacing)",
+      "identifier" : "stack_selected_layers_custom"
+    },
+    {
+      "script" : "./toggle_meta_layer_visibility.js",
+      "shortcut" : "ctrl cmd option m",
+      "name" : "Toggle Meta Layer Visibility",
+      "identifier" : "toggle_meta_layer_visibility"
+    },
+    {
+      "script" : "./rename_selected_layers.js",
+      "shortcut" : "ctrl cmd option /",
+      "name" : "Rename Selected Layers",
+      "identifier" : "rename_selected_layers"
+    },
+    {
+      "script" : "./pad_artboard_contents.js",
+      "shortcut" : "ctrl cmd option \\",
+      "name" : "Fit Artboard to Content with Padding",
+      "identifier" : "pad_artboard_contents"
+    }
+  ],
+  "menu": {
+    "title": "Roman's Misc Stuff",
+    "items" : [
+      "paste_and_swap",
+      "select_parents",
+      "copy_as_svg",
+      "toggle_meta_layer_visibility",
+      "rename_selected_layers",
+      "pad_artboard_contents",
+      "-",
+      "stack_selected_layers",
+      "stack_selected_layers_custom"
+    ]
+  }
+}
