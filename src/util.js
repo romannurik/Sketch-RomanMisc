@@ -19,11 +19,36 @@ export function makeTempFolder(key) {
   return path;
 }
 
-Array.fromNSArray = function(nsArray) {
+
+/**
+ * Returns a JavaScript array copy of the given NSArray.
+ */
+export function arrayFromNSArray(nsArray) {
   let arr = [];
-  let count = nsArray.count();
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < nsArray.count(); i++) {
     arr.push(nsArray.objectAtIndex(i));
   }
   return arr;
-};
+}
+
+
+/**
+ * Reorders the given layers in the layer list based on their position in the array.
+ * If they're in different containing groups, reorders locally within that group.
+ */
+export function reorderLayers(layers) {
+  // rearrange in layer list
+  let indexesInParents = {};
+
+  layers.forEach((layer, index) => {
+    let parent = layer.parentGroup();
+    let parentId = String(parent.objectID());
+    if (!(parentId in indexesInParents)) {
+      let siblings = arrayFromNSArray(parent.layers());
+      indexesInParents[parentId] = siblings.findIndex(
+          l => l.parentGroup() === parent && layers.indexOf(l) >= 0);
+    }
+    parent.removeLayer(layer);
+    parent.insertLayer_atIndex_(layer, indexesInParents[parentId]);
+  });
+}

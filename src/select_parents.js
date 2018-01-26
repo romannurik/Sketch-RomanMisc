@@ -6,7 +6,7 @@ export default function(context) {
     return;
   }
 
-  let parents = Array.fromNSArray(context.selection).map(layer => layer.parentGroup());
+  let parents = util.arrayFromNSArray(context.selection).map(layer => layer.parentGroup());
 
   util.setSelection(context, parents);
 };

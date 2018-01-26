@@ -19,7 +19,7 @@ function stackLayers(context, spacing) {
   let selectionMetas = [];
 
   // locally cache layer positions
-  Array.fromNSArray(context.selection).forEach(layer => {
+  util.arrayFromNSArray(context.selection).forEach(layer => {
     let frame = layer.frame();
     selectionMetas.push({
       layer: layer,
@@ -72,20 +72,8 @@ function stackLayers(context, spacing) {
   }
 
   // rearrange in layer list
-  let indexesInParents = {};
   let layersToSort = selectionMetas.map(meta => meta.layer);
-
-  layersToSort.forEach(function(layer, index) {
-    let parent = layer.parentGroup();
-    let parentId = String(parent.objectID());
-    if (!(parentId in indexesInParents)) {
-      let siblings = Array.fromNSArray(parent.layers());
-      indexesInParents[parentId] = siblings.findIndex(
-          l => l.parentGroup() === parent && layersToSort.indexOf(l) >= 0);
-    }
-    parent.removeLayer(layer);
-    parent.insertLayer_atIndex_(layer, indexesInParents[parentId]);
-  });
+  util.reorderLayers(layersToSort);
   
   // stack the layers
   selectionMetas.slice(1).forEach(meta => {

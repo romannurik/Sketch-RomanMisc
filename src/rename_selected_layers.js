@@ -6,7 +6,7 @@ export default function(context) {
     return;
   }
 
-  let layersToRename = Array.fromNSArray(context.selection);
+  let layersToRename = util.arrayFromNSArray(context.selection);
 
   let name = null;
   layersToRename.forEach(layer => {

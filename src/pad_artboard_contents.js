@@ -14,7 +14,7 @@ export default function(context) {
 
   let selectedArtboards = [];
 
-  Array.fromNSArray(context.selection).forEach(layer => {
+  util.arrayFromNSArray(context.selection).forEach(layer => {
     while (layer && !util.isArtboard(layer)) {
       layer = layer.parentGroup();
     }
@@ -28,7 +28,7 @@ export default function(context) {
 
   selectedArtboards.forEach(artboard => {
     let childBounds = {l: Infinity, t: Infinity, r: -Infinity, b: -Infinity};
-    let childFrames = Array.fromNSArray(artboard.layers()).map(l => l.frame());
+    let childFrames = util.arrayFromNSArray(artboard.layers()).map(l => l.frame());
     if (!childFrames.length) {
       return;
     }

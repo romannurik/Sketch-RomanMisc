@@ -6,7 +6,7 @@ export default function(context) {
     return;
   }
 
-  let layersToReplace = Array.fromNSArray(context.selection);
+  let layersToReplace = util.arrayFromNSArray(context.selection);
 
   // let undoManager = context.document.eventHandlerManager().normalHandler().undoManager();
   // undoManager.beginUndoGrouping();
@@ -19,7 +19,7 @@ export default function(context) {
     util.setSelection(context, [layerToReplace]); // to make sure paste happens on the right artboard
     util.sendAction(context, 'paste:');
 
-    let pastedLayers = Array.fromNSArray(context.document.selectedLayers().layers());
+    let pastedLayers = util.arrayFromNSArray(context.document.selectedLayers().layers());
 
     // compute offsets
     let topLeftMostPoint = pastedLayers.reduce((currentTopLeft, pastedLayer) => ({
