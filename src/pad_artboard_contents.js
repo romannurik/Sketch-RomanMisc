@@ -33,6 +33,9 @@ export default function(context) {
       return;
     }
 
+    let resizesContent = !!artboard.resizesContent();
+    artboard.setResizesContent(false);
+
     childFrames.forEach(frame => {
       childBounds.l = Math.min(childBounds.l, frame.x());
       childBounds.t = Math.min(childBounds.t, frame.y());
@@ -53,5 +56,7 @@ export default function(context) {
     artboardFrame.setY(artboardFrame.y() - deltaTop);
     artboardFrame.setWidth(childBounds.r - childBounds.l + padding * 2);
     artboardFrame.setHeight(childBounds.b - childBounds.t + padding * 2);
+
+    artboard.setResizesContent(resizesContent);
   });
 };
