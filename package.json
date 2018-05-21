@@ -16,6 +16,7 @@
         "start": "skpm-build --watch --run",
         "postinstall": "npm run build && skpm-link"
     },
+    "license": "Apache-2.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/romannurik/Sketch-RomanMisc.git"
