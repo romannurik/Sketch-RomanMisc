@@ -19,6 +19,12 @@ export function makeTempFolder(key) {
   return path;
 }
 
+export function resizeToFitChildren(layer) {
+  layer.fixGeometryWithOptions
+      ? layer.fixGeometryWithOptions(1)
+      : layer.resizeToFitChildrenWithOption(1);
+}
+
 
 /**
  * Returns a JavaScript array copy of the given NSArray.

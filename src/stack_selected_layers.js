@@ -87,6 +87,6 @@ function stackLayers(context, spacing) {
       nextX += (meta.r - meta.l) + spacing;
     }
 
-    meta.layer.parentGroup().resizeToFitChildrenWithOption(1);
+    util.resizeToFitChildren(meta.layer.parentGroup());
   });
 }

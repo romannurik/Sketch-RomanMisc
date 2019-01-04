@@ -33,7 +33,7 @@ export default function(context) {
       let deltaY = pastedLayer.frame().y() - topLeftMostPoint.y;
       pastedLayer.frame().setX(layerToReplace.frame().x() + deltaX);
       pastedLayer.frame().setY(layerToReplace.frame().y() + deltaY);
-      pastedLayer.parentGroup().resizeToFitChildrenWithOption(1);
+      util.resizeToFitChildren(pastedLayer.parentGroup());
     });
 
     // add to the list of all pasted layers
